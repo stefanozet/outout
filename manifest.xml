@@ -13,12 +13,12 @@
   <DisplayName DefaultValue="Email Manager"/>
   <Description DefaultValue="Gestione intelligente della posta elettronica: etichette, contatti e firme."/>
 
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-128.png"/>
-  <SupportUrl DefaultValue="https://localhost:3000"/>
+  <IconUrl DefaultValue="https://TUO-USERNAME.github.io/outout/assets/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://TUO-USERNAME.github.io/outout/assets/icon-128.png"/>
+  <SupportUrl DefaultValue="https://TUO-USERNAME.github.io/outout"/>
 
   <AppDomains>
-    <AppDomain>https://localhost:3000</AppDomain>
+    <AppDomain>https://TUO-USERNAME.github.io/outout</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -34,7 +34,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://localhost:3000/src/taskpane.html"/>
+        <SourceLocation DefaultValue="https://TUO-USERNAME.github.io/outout/src/taskpane.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -86,13 +86,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://TUO-USERNAME.github.io/outout/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://TUO-USERNAME.github.io/outout/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://TUO-USERNAME.github.io/outout/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/src/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/src/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://TUO-USERNAME.github.io/outout/src/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://TUO-USERNAME.github.io/outout/src/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Email Manager"/>
