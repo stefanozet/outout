@@ -1,0 +1,17 @@
+{
+  "name": "outlook-email-manager",
+  "version": "1.0.0",
+  "description": "Add-in Outlook per gestione etichette e contatti",
+  "private": true,
+  "scripts": {
+    "setup": "node generate-icons.js && npx office-addin-dev-certs install",
+    "start": "node server.js",
+    "dev": "npm run setup && npm run start"
+  },
+  "devDependencies": {
+    "office-addin-dev-certs": "^1.13.5"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

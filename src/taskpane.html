@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Manager</title>
+
+  <!-- Office.js - DEVE essere caricato per primo -->
+  <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+  <style>
+    :root {
+      --color-primary: #0078d4;
+      --color-success: #107c10;
+      --color-warning: #797673;
+      --color-error: #d13438;
+      --color-bg: #ffffff;
+      --color-surface: #f3f2f1;
+      --color-border: #edebe9;
+      --color-text: #201f1e;
+      --color-text-secondary: #605e5c;
+      --radius: 4px;
+      --font: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      font-size: 13px;
+      color: var(--color-text);
+      background: var(--color-bg);
+      padding: 12px;
+      line-height: 1.4;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    header h1 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .status-badge.loading { background: #fff4ce; color: #7d6608; }
+    .status-badge.ok      { background: #dff6dd; color: var(--color-success); }
+    .status-badge.error   { background: #fde7e9; color: var(--color-error); }
+
+    #status-area {
+      margin-bottom: 16px;
+    }
+
+    .section {
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 6px;
+      padding: 6px 8px;
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+
+    .info-row .label {
+      min-width: 52px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      flex-shrink: 0;
+    }
+
+    .info-row .value {
+      color: var(--color-text);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-size: 11px;
+      background: #deecf9;
+      color: #004578;
+      margin: 2px 2px 2px 0;
+    }
+
+    #recipients-list .pill { background: #e8f5e9; color: #1b5e20; }
+
+    .empty-state {
+      padding: 20px;
+      text-align: center;
+      color: var(--color-text-secondary);
+      font-style: italic;
+    }
+
+    button {
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      padding: 6px 14px;
+      font-size: 12px;
+      font-family: var(--font);
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    button:hover { background: #106ebe; }
+    button:active { background: #005a9e; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📧 Email Manager</h1>
+  <span id="status-badge" class="status-badge loading">Caricamento…</span>
+</header>
+
+<div id="status-area"></div>
+
+<div id="email-info" style="display:none">
+
+  <div class="section">
+    <div class="section-title">Mittente</div>
+    <div class="info-row">
+      <span class="label">Nome</span>
+      <span class="value" id="from-name">—</span>
+    </div>
+    <div class="info-row">
+      <span class="label">Email</span>
+      <span class="value" id="from-email">—</span>
+    </div>
+    <div class="info-row">
+      <span class="label">Dominio</span>
+      <span class="value" id="from-domain">—</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Destinatari (TO + CC)</div>
+    <div id="recipients-list"><span class="empty-state">Nessun destinatario</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Oggetto</div>
+    <div class="info-row">
+      <span class="value" id="subject">—</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Informazioni tecniche</div>
+    <div class="info-row">
+      <span class="label">Item ID</span>
+      <span class="value" id="item-id" style="font-size:10px">—</span>
+    </div>
+    <div class="info-row">
+      <span class="label">API</span>
+      <span class="value" id="api-version">—</span>
+    </div>
+  </div>
+
+</div>
+
+<div id="no-item" style="display:none" class="empty-state">
+  Nessuna email selezionata.<br>Apri una email per vedere i dati.
+</div>
+
+<script src="taskpane.js"></script>
+</body>
+</html>
